@@ -1,0 +1,68 @@
+.manage-events {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .manage-events h1 {
+    text-align: center;
+  }
+  
+  .add-event {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .add-event input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    margin-right: 10px;
+  }
+  
+  .add-event button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-event button:hover {
+    background-color: #0056b3;
+  }
+  
+  .event-list {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .event-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .event-list button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .event-list button:hover {
+    background-color: #a71d2a;
+  }
+  
