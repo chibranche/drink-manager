@@ -24,22 +24,30 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-  }
-  
-  .menu-button {
+    align-items: center; /* Ensures buttons and links align properly */
+}
+
+.menu-button {
+    display: flex;  /* Ensures buttons and links behave the same */
+    align-items: center;
+    justify-content: center;
+    width: 200px; /* Set a fixed width for consistency */
+    text-align: center;
     text-decoration: none;
     padding: 10px 20px;
     font-size: 1rem;
     color: white;
     background-color: #007bff;
     border-radius: 5px;
+    border: none; /* Ensures buttons and links look the same */
+    cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .menu-button:hover {
+}
+
+.menu-button:hover {
     background-color: #0056b3;
-  }
-  
+}
+
   .switch-event-button {
     margin-top: 20px;
     padding: 10px 20px;

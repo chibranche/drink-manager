@@ -1,0 +1,155 @@
+.select-participant {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .participant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .participant-button {
+    padding: 10px;
+    border: 2px solid #ccc;
+    background-color: #ba0000;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .participant-button.selected {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #008CBA;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #005f73;
+  }
+
+  .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification button {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.last-log {
+  background: #f9f9f9;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.last-log h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.log-details {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.log-details p {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+.undo-button {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.undo-button:hover {
+  background: #c9302c;
+}
+
+.no-log {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.select-drink {
+  text-align: center;
+}
+
+.drink-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive grid */
+  gap: 15px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.drink-button {
+  background-color: #c9302c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.drink-button:hover {
+  background-color: #4CAF50;
+}
+
+/* Disabled button styles */
+.nav-button:disabled,
+.undo-button:disabled {
+    background-color: #b0b0b0;  /* Gray background */
+    color: #666;  /* Dark gray text */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Prevent hover effect on disabled buttons */
+.nav-button:disabled:hover,
+.undo-button:disabled:hover {
+    background-color: #b0b0b0;
+}

@@ -1,39 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import ManageEvents from '../pages/ManageEvents';
 import './MainMenu.css';
 
+import {EventContext} from '../context/EventProvider';
+
 const MainMenu = () => {
-  const [selectedEvent, setSelectedEvent] = useState(null);
+  const {selectedEventData, handleEventSelect, handleSwitchEvent} = React.useContext(EventContext);
 
-  // Load the selected event from local storage when the app starts
-  useEffect(() => {
-    const savedEvent = JSON.parse(localStorage.getItem('selectedEvent'));
-    if (savedEvent) {
-      setSelectedEvent(savedEvent);
-    }
-  }, []);
-
-  // Handle selecting an event
-  const handleEventSelect = (event) => {
-    setSelectedEvent(event);
-    localStorage.setItem('selectedEvent', JSON.stringify(event));
-  };
-
-  // Handle switching events
-  const handleSwitchEvent = () => {
-    setSelectedEvent(null);
-    localStorage.removeItem('selectedEvent');
-  };
-
-  if (!selectedEvent) {
+  if (!selectedEventData?.id) {
     // Pass the `handleEventSelect` function as the `onSelectEvent` prop
     return <ManageEvents onSelectEvent={handleEventSelect} />;
   }
 
   return (
     <div className="main-menu">
-      <h1>Manage {selectedEvent.name}</h1>
+      <h1>Manage {selectedEventData.name}</h1>
       <p>Welcome to the event management system!</p>
       <div className="menu-buttons">
         <Link to="/manage-participants" className="menu-button">Manage Participants</Link>

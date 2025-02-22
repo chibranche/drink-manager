@@ -7,8 +7,11 @@ import LogDrinks from './pages/LogDrinks';
 import ViewSummary from './pages/ViewSummary';
 import ManageEvents from './pages/ManageEvents';
 
+import { EventProvider } from './context/EventProvider';
+
 const App = () => {
   return (
+    <EventProvider >
     <Router>
       <Routes>
         <Route path="/" element={<MainMenu />} />
@@ -19,6 +22,7 @@ const App = () => {
         <Route path="/manage-events" element={<ManageEvents />} />
       </Routes>
     </Router>
+    </EventProvider>
   );
 };
 
