@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import MainMenu from './components/MainMenu';
 import ManageParticipants from './pages/ManageParticipants';
 import ManageDrinks from './pages/ManageDrinks';
@@ -20,6 +20,13 @@ const App = () => {
     <Route path="/log-drinks" element={<LogDrinks />} />
     <Route path="/view-summary" element={<ViewSummary />} />
     <Route path="/manage-events" element={<ManageEvents />} />
+    <Route path="*" element={
+      <>
+      <h1>Not Found !</h1>
+      <p>Sorry, there is nothing here.</p>
+      <Link to="/">Back to Home</Link>
+      </>}
+       />
   </Routes>
 </Router>
     </EventProvider>
