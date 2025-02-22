@@ -51,7 +51,13 @@ const {events, createEvent, editEventName, deleteEvent, copyEvent, exportEventTo
       <ul className="event-list">
       {events.map((event) => (
   <li key={event.id} style={{ marginBottom: '1rem' }}>
-    <b>{event.name}</b> - created on {event?.createdOn}
+    <b>{event.name}</b> - created on {new Date(event?.createdOn).toLocaleDateString(undefined, {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                })}
     <br />
     <button onClick={() => props.onSelectEvent(event)}>Select</button>
     <button onClick={() => deleteEvent(event.id)}>Delete</button>
