@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/drink-manager/static/css/main.ba785d5b.css",
-    "main.js": "/drink-manager/static/js/main.375353ef.js",
+    "main.js": "/drink-manager/static/js/main.8fb3f06a.js",
     "index.html": "/drink-manager/index.html",
     "main.ba785d5b.css.map": "/drink-manager/static/css/main.ba785d5b.css.map",
-    "main.375353ef.js.map": "/drink-manager/static/js/main.375353ef.js.map"
+    "main.8fb3f06a.js.map": "/drink-manager/static/js/main.8fb3f06a.js.map"
   },
   "entrypoints": [
     "static/css/main.ba785d5b.css",
-    "static/js/main.375353ef.js"
+    "static/js/main.8fb3f06a.js"
   ]
 }
