@@ -12,16 +12,16 @@ import { EventProvider } from './context/EventProvider';
 const App = () => {
   return (
     <EventProvider >
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainMenu />} />
-        <Route path="/manage-participants" element={<ManageParticipants />} />
-        <Route path="/manage-drinks" element={<ManageDrinks />} />
-        <Route path="/log-drinks" element={<LogDrinks />} />
-        <Route path="/view-summary" element={<ViewSummary />} />
-        <Route path="/manage-events" element={<ManageEvents />} />
-      </Routes>
-    </Router>
+<Router basename="/drink-manager">
+  <Routes>
+    <Route path="/" element={<MainMenu />} />
+    <Route path="/manage-participants" element={<ManageParticipants />} />
+    <Route path="/manage-drinks" element={<ManageDrinks />} />
+    <Route path="/log-drinks" element={<LogDrinks />} />
+    <Route path="/view-summary" element={<ViewSummary />} />
+    <Route path="/manage-events" element={<ManageEvents />} />
+  </Routes>
+</Router>
     </EventProvider>
   );
 };
