@@ -66,3 +66,37 @@
     background-color: #a71d2a;
   }
   
+  /* Hide the default file input */
+.custom-file-input {
+  display: none;
+}
+
+/* Style for the label, which will act as the clickable button */
+.custom-file-label {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the custom file label (button) */
+.custom-file-label:hover {
+  background-color: #45a049;
+}
+
+/* Focus effect for accessibility */
+.custom-file-label:focus {
+  outline: 2px solid #ccc;
+  outline-offset: 2px;
+}
+
+/* Optional: Style for the file input's container or surrounding space */
+.manage-events {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}

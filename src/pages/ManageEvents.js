@@ -9,7 +9,7 @@ const ManageEvents = (props) => {
   const [editNameId, setEditNameId] = useState(null);
   const [editNameInput, setEditNameInput] = useState('');
 
-const {events, createEvent, editEventName, deleteEvent, copyEvent} = React.useContext(EventContext);
+const {events, createEvent, editEventName, deleteEvent, copyEvent, exportEventToTxt, importEventFromTxt} = React.useContext(EventContext);
 
   return (
     <div className="manage-events">
@@ -27,21 +27,42 @@ const {events, createEvent, editEventName, deleteEvent, copyEvent} = React.useCo
         />
         <button onClick={()=>{createEvent(eventName)}}>Add Event</button>
       </div>
+
+
+      {/* Import Event */}
+      <label htmlFor="importFile" className="custom-file-label">
+        Import Event
+      </label>
+      <input 
+        id="importFile"
+        type="file" 
+        accept=".json" // Allow only JSON files
+        onChange={(e) => {
+          const file = e.target.files[0];
+          if (file) {
+            importEventFromTxt(file);
+          }
+        }}
+        className="custom-file-input"
+      />
+
+
+      {/* Event List */}
       <ul className="event-list">
-      {events.map((event) => {
-        return(
-        <li key={event.id} style={{marginBottom: '1rem'}}>
-          <b>{event.name}</b> - created on {event?.createdOn}
-          <br />
-          <button onClick={() => props.onSelectEvent(event)}>Select</button>
-          <button onClick={() => deleteEvent(event.id)}>Delete</button>
-          <button onClick={() => {
-            setEditNameId(event.id)
-            setEditNameInput(event.name)
-            }}>Edit</button>
-            <button onClick={() => copyEvent(event.id)}>Copy</button>
-        </li>
-      )})}
+      {events.map((event) => (
+  <li key={event.id} style={{ marginBottom: '1rem' }}>
+    <b>{event.name}</b> - created on {event?.createdOn}
+    <br />
+    <button onClick={() => props.onSelectEvent(event)}>Select</button>
+    <button onClick={() => deleteEvent(event.id)}>Delete</button>
+    <button onClick={() => {
+      setEditNameId(event.id)
+      setEditNameInput(event.name)
+    }}>Edit</button>
+    <button onClick={() => copyEvent(event.id)}>Copy</button>
+    <button onClick={() => exportEventToTxt(event.id)}>Export to .txt</button> {/* Export button */}
+  </li>
+))}
     </ul>
     </>
       )}

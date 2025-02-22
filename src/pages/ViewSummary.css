@@ -1,0 +1,114 @@
+.receipt {
+    background: white;
+    padding: 20px;
+    border: 1px solid #000;
+    font-family: monospace;
+    font-size: 14px;
+    width: 350px;
+    margin: 20px auto;
+    box-shadow: none;
+}
+
+.receipt h1 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px dashed #000;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.receipt hr {
+    border: none;
+    border-top: 1px dashed #000;
+    margin: 8px 0;
+}
+
+.receipt p, .receipt ul {
+    margin: 5px 0;
+}
+
+.receipt ul {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.receipt li {
+    white-space: pre; /* Preserve spaces */
+    font-size: 14px;
+}
+
+.receipt .participant {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.receipt .drink-entry {
+    padding-left: 15px; /* Indent for clarity */
+}
+
+.back-button {
+    background: none;
+    border: 1px solid #000;
+    padding: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.back-button:hover {
+    background: #ddd;
+}
+
+@media print {
+    /* Remove default margin and padding */
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+  
+    /* Reset any browser-specific print margins */
+    @page {
+      size: 80mm auto; /* 80mm width and automatic height */
+      margin: 0; /* Ensure no margins */
+    }
+  
+    /* Styling for receipt content */
+    .receipt {
+      width: 80mm; /* Define the receipt width */
+      margin: 0; /* Remove any margin around the receipt */
+      padding: 5mm; /* Add small padding inside the receipt */
+      box-sizing: border-box; /* Ensure padding is included in the width */
+    }
+  
+    .receipt h1 {
+      font-size: 12pt; /* Adjust font size */
+    }
+  
+    .receipt p,
+    .receipt ul,
+    .receipt li {
+      font-size: 10pt; /* Adjust text size for better readability */
+      line-height: 1.4;
+    }
+  
+    /* Ensure no extra space around the list items */
+    .receipt ul {
+      padding-left: 0; /* Remove padding */
+      margin-left: 0; /* Remove left margin */
+      list-style-type: none; /* Remove default list styles */
+    }
+  
+    /* Ensure no additional space between elements */
+    .receipt hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 10px 0;
+    }
+  
+    .receipt button {
+      display: none; /* Hide the print buttons during print */
+    }
+  }

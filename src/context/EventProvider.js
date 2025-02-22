@@ -196,7 +196,7 @@ const editDrink = (oldName, newName) => {
         return participant;
     });
 
-    const lastRound = {participants: participantIdsArray, drink: drinkName, timestamp: new Date().toISOString(), roundNumber: selectedEventData.roundHistory.length + 1};
+    const lastRound = {participants: participantIdsArray, drink: drinkName, timestamp: new Date().toISOString(), roundNumber: selectedEventData.roundHistory?.length + 1 ?? 1};
 
     const newRoundHistory = selectedEventData?.roundHistory ? [...selectedEventData.roundHistory, lastRound] : [lastRound];
 
@@ -238,6 +238,54 @@ const undoDrink = (index) => {
     setConfirmationMessage('Drink undone');
   }
 
+  const exportEventToTxt = (eventId) => {
+    const event = events.find(event => event.id === eventId);
+    if (!event) return;
+  
+    // Stringify the entire event data
+    const eventData = JSON.stringify(event, null, 2); // Pretty print with 2 spaces
+    
+    // Create a Blob from the event data
+    const blob = new Blob([eventData], { type: 'application/json' });
+    
+    // Create an anchor element to trigger the download
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `${event.name}.json`; // Name the file with .json extension
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const importEventFromTxt = (eventFile) => {
+    const reader = new FileReader();
+  
+    reader.onload = (e) => {
+      const fileContent = e.target.result;
+      
+      // Parse the JSON string back into an object
+      try {
+        const eventData = JSON.parse(fileContent);
+        
+        // Ensure the data has a valid structure before adding it
+        if (eventData && eventData.id && eventData.name) {
+          setEvents([...events, {...eventData, id: uuidv4(), createdOn: new Date().toISOString(),}]); // Add the event to the list
+        } else {
+          console.error("Invalid event data");
+        }
+      } catch (error) {
+        console.error("Failed to parse event data", error);
+      }
+    };
+  
+    reader.readAsText(eventFile);
+  };
+  
+
+  // ############################
+  // Return the provider
+  // ############################
+
 
     return (
         <EventContext.Provider value={{ 
@@ -245,7 +293,11 @@ const undoDrink = (index) => {
             selectedEventId,
             selectedEventData,
             confirmationMessage,
+
             closeConfirmationMessage,
+            exportEventToTxt,
+            importEventFromTxt,
+
 
             handleEventSelect,
             handleSwitchEvent,
